@@ -34,7 +34,7 @@ $(document).ready(function () {
                     type: 'inside'
                 }],
                 series: {
-                    name: '用户的浏览加购下单情况分析曲线',
+                    name: '用户的加购下单情况分析曲线',
                     type: 'line',
                     data:[],
                     markLine: {
