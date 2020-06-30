@@ -16,6 +16,10 @@
     <script src="/js/LostUser.js"></script>
     <!-- 最近七天内，用户连续活跃三天-->
     <script src="/js/ActCon.js"></script>
+    <!-- 浏览下单的情况 -->
+    <script src="/js/Useretabc.js"></script>
+    <!-- 加购下单的情况 -->
+    <script src="/js/Useretaba.js"></script>
     <!--main.css 导航栏和数据图表的样式文件  如果后续有冲突大家自行更改-->
     <link rel="stylesheet" type="text/css" href="/css/main.css">
 
@@ -64,11 +68,11 @@
         </el-menu-item>
         <el-menu-item index="5">
             <i class="el-icon-setting"></i>
-            <span slot="title">导航5</span>
+            <span slot="title">浏览下单情况</span>
         </el-menu-item>
         <el-menu-item index="6">
             <i class="el-icon-setting"></i>
-            <span slot="title">导航6</span>
+            <span slot="title">加购下单情况</span>
         </el-menu-item>
     </el-menu>
 </div>
@@ -78,8 +82,8 @@
     <div class="data_table">2</div>
     <div class="data_table" id="Act_continue_3_day">3</div>
     <div class="data_table" id="Lost_user_table">4</div>
-    <div class="data_table">5</div>
-    <div class="data_table">6</div>
+    <div class="data_table" id="Funnel_user_etabc">5</div>
+    <div class="data_table" id="Funnel_user_etaba">6</div>
 </div>
 </body>
 </html>
