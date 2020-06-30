@@ -33,29 +33,6 @@ $(document).ready(function () {
                 }, {
                     type: 'inside'
                 }],
-                visualMap: {
-                    top: 10,
-                    right: 10,
-                    pieces: [{
-                        gt: 0,
-                        lte: 5000,
-                        color: '#055'
-                    }, {
-                        gt: 5000,
-                        lte: 10000,
-                        color: '#f6de33'
-                    },{
-                        gt: 10000,
-                        lte: 30000,
-                        color: '#cc0033'
-                    },{
-                        gt: 30000,
-                        color: '#7e0023'
-                    }],
-                    outOfRange: {
-                        color: '#999'
-                    }
-                },
                 series: {
                     name: '用户的浏览加购下单情况分析曲线',
                     type: 'line',
@@ -63,13 +40,11 @@ $(document).ready(function () {
                     markLine: {
                         silent: true,
                         data: [{
-                            yAxis: 0
+                            yAxis: 0.04
                         }, {
-                            yAxis: 0.25
+                            yAxis: 0.05
                         },{
-                            yAxis: 0.5
-                        },{
-                            yAxis: 1
+                            yAxis: 0.06
                         }
                         ]
                     }
