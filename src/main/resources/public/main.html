@@ -17,6 +17,8 @@
     <script src="/js/active_users/activeusers_daily.js"></script>
     <script src="/js/active_users/activeusers_wk.js"></script>
     <script src="/js/active_users/activeusers_month.js"></script>
+    <!-- 用户留存情况 -->
+    <script src="/js/stayusers.js"></script>
     <!-- 新增用户情况-->
     <script src="/js/new_users/newusers_daily.js"></script>
     <script src="/js/new_users/newusers_wk.js"></script>
@@ -121,6 +123,11 @@
                 <span slot="title">加购下单情况</span>
             </el-menu-item>
 
+            <el-menu-item index="12">
+                <i class="el-icon-menu"></i>
+                <span slot="title">用户留存情况</span>
+            </el-menu-item>
+
         </el-menu>
     </div>
     <div id="data_tables_holder">
@@ -133,22 +140,12 @@
         <div class="data_table" id="newusers_wk">5</div>
         <div class="data_table" id="newusers_month">6</div>
         <div class="data_table" id="base_data_holder">
-            <el-table
-                    :data="tableData"
-                    style="width: 100%">
-                <el-table-column
-                        prop="shop"
-                        label="总体店铺数"
-                        width="180">
+            <el-table :data="tableData" style="width: 100%">
+                <el-table-column prop="shop" label="总体店铺数" width="180">
                 </el-table-column>
-                <el-table-column
-                        prop="brand"
-                        label="总体商标数"
-                        width="180">
+                <el-table-column prop="brand" label="总体商标数" width="180">
                 </el-table-column>
-                <el-table-column
-                        prop="volume"
-                        label="总体成交量">
+                <el-table-column prop="volume" label="总体成交量">
                 </el-table-column>
             </el-table>
             <div id="base_data" style="width: 1000px;height: 700px"></div>
@@ -159,6 +156,7 @@
         <div class="data_table" id="Lost_user_table">9</div>
         <div class="data_table" id="Funnel_user_etabc">10</div>
         <div class="data_table" id="Funnel_user_etaba">11</div>
+        <div class="data_table" id="stayusers_daily">12</div>
     </div>
 </body>
 

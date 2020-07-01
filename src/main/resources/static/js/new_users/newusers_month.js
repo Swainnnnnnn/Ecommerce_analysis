@@ -10,7 +10,7 @@ $(function () {
                 type: 'post',
                 url: '/GetNewUsers_Month',
                 success: function (data) {
-                    console.log(data);
+                    // console.log(data);
                     var months = [];
                     var totals = [];
                     for (var i = 0; i < data.length; i++) {
