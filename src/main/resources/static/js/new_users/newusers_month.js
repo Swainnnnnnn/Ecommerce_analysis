@@ -27,6 +27,10 @@ $(function () {
                                 }
                             }
                         },
+                        title: {
+                            left: 'center',
+                            text: '每月新增用户报告'
+                        },
                         toolbox: {
                             feature: {
                                 magicType: {show: true, type: ['line']},
