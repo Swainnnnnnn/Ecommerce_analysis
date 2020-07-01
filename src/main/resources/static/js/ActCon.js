@@ -91,9 +91,9 @@ $(document).ready(function () {
                         }
                     }
                     console.log("get data from dws_uv_detail_c3");
-                    console.log(response)
-                    console.log(option.series.data)
-                    console.log(option.xAxis.data)
+                    // console.log(response)
+                    // console.log(option.series.data)
+                    // console.log(option.xAxis.data)
                     myChart.hideLoading();
                     myChart.setOption(option);
                 }
