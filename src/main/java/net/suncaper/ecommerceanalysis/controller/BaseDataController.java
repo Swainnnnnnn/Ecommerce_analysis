@@ -9,13 +9,12 @@ import java.util.ArrayList;
 import java.util.Map;
 
 @RestController
-public class LostUserController {
+public class BaseDataController {
     @Autowired
     private JdbcTemplate jdbcTemplate;
-    @PostMapping("/GetLostUser")
-    public ArrayList<Map<String,Object>> LostUser(){
-        System.out.println("GetLostUser");
-        System.out.println(jdbcTemplate.queryForList("select * from  base_data;"));
-       return (ArrayList<Map<String, Object>>) jdbcTemplate.queryForList("SELECT * FROM dws_ua_lost_user order by dt;");
+    @PostMapping("/GetBaseData")
+    public ArrayList<Map<String,Object>>  BaseData(){
+
+        return (ArrayList<Map<String, Object>>) jdbcTemplate.queryForList("select * from  base_data;");
     }
 }
