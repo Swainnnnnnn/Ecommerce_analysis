@@ -31,6 +31,13 @@
     <script src="/js/Useretabc.js"></script>
     <!-- 加购下单的情况 -->
     <script src="/js/Useretaba.js"></script>
+    <!--各省分消费情况-->
+    <script src="/js/province/provinceUserCount.js"></script>
+    <script src="/js/province/provinceGoodsCount.js"></script>
+    <!--销量排行-->
+    <script src="/js/hit/hitGoods.js"></script>
+    <script src="/js/hit/hitMerchant.js"></script>
+    <script src="/js/hit/hitBrand.js"></script>
     <!--基础数据分析-->
     <script src="/js/base_data.js"></script>
     <!--main.css 导航栏和数据图表的样式文件  如果后续有冲突大家自行更改-->
@@ -42,24 +49,6 @@
 
     <div id="nav">
         <el-menu default-active="1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" @select="handleSelect" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
-            <!--        <el-submenu index="1">-->
-            <!--            <template slot="title">-->
-            <!--                <i class="el-icon-location"></i>-->
-            <!--                <span>导航一</span>-->
-            <!--            </template>-->
-            <!--            <el-menu-item-group>-->
-            <!--                <template slot="title">分组一</template>-->
-            <!--                <el-menu-item index="1-1">选项1</el-menu-item>-->
-            <!--                <el-menu-item index="1-2">选项2</el-menu-item>-->
-            <!--            </el-menu-item-group>-->
-            <!--            <el-menu-item-group title="分组2">-->
-            <!--                <el-menu-item index="1-3">选项3</el-menu-item>-->
-            <!--            </el-menu-item-group>-->
-            <!--            <el-submenu index="1-4">-->
-            <!--                <template slot="title">选项4</template>-->
-            <!--                <el-menu-item index="1-4-1">选项1</el-menu-item>-->
-            <!--            </el-submenu>-->
-            <!--        </el-submenu>-->
             <el-submenu index="">
                 <template slot="title">
                 <i class="el-icon-postcard"></i>
@@ -102,6 +91,7 @@
                 </el-menu-item-group>
             </el-submenu>
 
+
             <el-menu-item index="7">
                 <i class="el-icon-menu"></i>
                 <span slot="title">基础数据分析</span>
@@ -127,6 +117,42 @@
                 <i class="el-icon-menu"></i>
                 <span slot="title">用户留存情况</span>
             </el-menu-item>
+            <el-submenu index="">
+                <template slot="title">
+                    <i class="el-icon-postcard"></i>
+                    <span>各省消费能力</span>
+                </template>
+                <el-menu-item-group>
+                    <el-menu-item index="13">
+                        <i class="el-icon-user"></i>
+                        <span>各个省份的用户数</span>
+                    </el-menu-item>
+                    <el-menu-item index="14">
+                        <i class="el-icon-user"></i>
+                        <span>各个省份购买的商品数</span>
+                    </el-menu-item>
+                </el-menu-item-group>
+            </el-submenu>
+            <el-submenu index="">
+                <template slot="title">
+                    <i class="el-icon-postcard"></i>
+                    <span>销售排行</span>
+                </template>
+                <el-menu-item-group>
+                    <el-menu-item index="15">
+                        <i class="el-icon-user"></i>
+                        <span>销售top10的商品</span>
+                    </el-menu-item>
+                    <el-menu-item index="16">
+                        <i class="el-icon-user"></i>
+                        <span>销售top10的店铺</span>
+                    </el-menu-item>
+                    <el-menu-item index="17">
+                        <i class="el-icon-user"></i>
+                        <span>销售top10的品牌</span>
+                    </el-menu-item>
+                </el-menu-item-group>
+            </el-submenu>
 
         </el-menu>
     </div>
@@ -157,6 +183,11 @@
         <div class="data_table" id="Funnel_user_etabc">10</div>
         <div class="data_table" id="Funnel_user_etaba">11</div>
         <div class="data_table" id="stayusers_daily">12</div>
+        <div class="data_table" id="province_user_count">13</div>
+        <div class="data_table" id="province_goods_count">14</div>
+        <div class="data_table" id="hit_goods">15</div>
+        <div class="data_table" id="hit_merchant">16</div>
+        <div class="data_table" id="hit_brand">17</div>
     </div>
 </body>
 
