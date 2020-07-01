@@ -12,6 +12,7 @@ $(document).ready(function() {
                 //key   el-menu-item 的index
                 $('.data_table').removeClass("data_table_selected");
                 $(".data_table").eq(key-1).addClass('data_table_selected');
+                console.log(key,keyPath)
             }
         }
     });

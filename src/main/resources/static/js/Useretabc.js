@@ -33,6 +33,26 @@ $(document).ready(function () {
                 }, {
                     type: 'inside'
                 }],
+                visualMap: {
+                    top: 10,
+                    right: 10,
+                    pieces: [{
+                        gt: 0,
+                        lte: 0.04,
+                        color: '#096'
+                    }, {
+                        gt: 0.04,
+                        lte: 0.05,
+                        color: '#ffde33'
+                    },{
+                        gt: 0.05,
+                        lte: 0.06,
+                        color: '#cc0033'
+                    }],
+                    outOfRange: {
+                        color: '#999'
+                    }
+                },
                 series: {
                     name: '用户的浏览下单情况分析曲线',
                     type: 'line',

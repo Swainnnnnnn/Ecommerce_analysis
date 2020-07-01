@@ -17,4 +17,12 @@ public class BaseDataController {
 
         return (ArrayList<Map<String, Object>>) jdbcTemplate.queryForList("select * from  base_data;");
     }
+    //age_distribution
+    @PostMapping("/GetAgeDistribution")
+    public ArrayList<Map<String,Object>> AgeDistribution(){
+
+        return (ArrayList<Map<String, Object>>) jdbcTemplate.queryForList("select * from  age_distribution;");
+    }
+
+
 }

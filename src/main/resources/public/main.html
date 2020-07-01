@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>shopping</title>
@@ -12,10 +13,14 @@
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
     <!--main.js 导航栏控制页面切换 -->
     <script src="/js/main.js"></script>
+    <!-- 用户活跃情况-->
+    <script src="/js/active_users/activeusers_daily.js"></script>
+    <script src="/js/active_users/activeusers_wk.js"></script>
+    <script src="/js/active_users/activeusers_month.js"></script>
     <!-- 新增用户情况-->
-    <script src="/js/newusers_daily.js"></script>
-    <script src="/js/newusers_wk.js"></script>
-    <script src="/js/newusers_month.js"></script>
+    <script src="/js/new_users/newusers_daily.js"></script>
+    <script src="/js/new_users/newusers_wk.js"></script>
+    <script src="/js/new_users/newusers_month.js"></script>
     <!--LostUser.js 我负责的用户流失部分的js  建议大家将自己负责的部分单独写一个js -->
     <script src="/js/LostUser.js"></script>
     <!-- 最近七天内，用户连续活跃三天-->
@@ -30,92 +35,131 @@
     <link rel="stylesheet" type="text/css" href="/css/main.css">
 
 </head>
+
 <body>
 
-<div id="nav">
-    <el-menu
-            default-active="2"
-            class="el-menu-vertical-demo"
-            @open="handleOpen"
-            @close="handleClose"
-            @select="handleSelect"
-            background-color="#545c64"
-            text-color="#fff"
-            active-text-color="#ffd04b">
-<!--        <el-submenu index="1">-->
-<!--            <template slot="title">-->
-<!--                <i class="el-icon-location"></i>-->
-<!--                <span>导航一</span>-->
-<!--            </template>-->
-<!--            <el-menu-item-group>-->
-<!--                <template slot="title">分组一</template>-->
-<!--                <el-menu-item index="1-1">选项1</el-menu-item>-->
-<!--                <el-menu-item index="1-2">选项2</el-menu-item>-->
-<!--            </el-menu-item-group>-->
-<!--            <el-menu-item-group title="分组2">-->
-<!--                <el-menu-item index="1-3">选项3</el-menu-item>-->
-<!--            </el-menu-item-group>-->
-<!--            <el-submenu index="1-4">-->
-<!--                <template slot="title">选项4</template>-->
-<!--                <el-menu-item index="1-4-1">选项1</el-menu-item>-->
-<!--            </el-submenu>-->
-<!--        </el-submenu>-->
+    <div id="nav">
+        <el-menu default-active="1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" @select="handleSelect" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
+            <!--        <el-submenu index="1">-->
+            <!--            <template slot="title">-->
+            <!--                <i class="el-icon-location"></i>-->
+            <!--                <span>导航一</span>-->
+            <!--            </template>-->
+            <!--            <el-menu-item-group>-->
+            <!--                <template slot="title">分组一</template>-->
+            <!--                <el-menu-item index="1-1">选项1</el-menu-item>-->
+            <!--                <el-menu-item index="1-2">选项2</el-menu-item>-->
+            <!--            </el-menu-item-group>-->
+            <!--            <el-menu-item-group title="分组2">-->
+            <!--                <el-menu-item index="1-3">选项3</el-menu-item>-->
+            <!--            </el-menu-item-group>-->
+            <!--            <el-submenu index="1-4">-->
+            <!--                <template slot="title">选项4</template>-->
+            <!--                <el-menu-item index="1-4-1">选项1</el-menu-item>-->
+            <!--            </el-submenu>-->
+            <!--        </el-submenu>-->
+            <el-submenu index="">
+                <template slot="title">
+                <i class="el-icon-postcard"></i>
+                <span>用户活跃情况</span>
+            </template>
+                <el-menu-item-group>
+                    <el-menu-item index="1">
+                        <i class="el-icon-user"></i>
+                        <span>每日活跃用户数</span>
+                    </el-menu-item>
+                    <el-menu-item index="2">
+                        <i class="el-icon-user"></i>
+                        <span>每周活跃用户数</span>
+                    </el-menu-item>
+                    <el-menu-item index="3">
+                        <i class="el-icon-user"></i>
+                        <span>每月活跃用户数</span>
+                    </el-menu-item>
+                </el-menu-item-group>
+            </el-submenu>
 
-        <el-submenu index="1">
-            <template slot="title">
+            <el-submenu index="">
+                <template slot="title">
                 <i class="el-icon-data-line"></i>
                 <span>新增用户情况</span>
             </template>
-            <el-menu-item-group>
-                <el-menu-item index="2">
-                    <i class="el-icon-user"></i>
-                    <span>每日新增用户</span>
-                </el-menu-item>
-                <el-menu-item index="3">
-                    <i class="el-icon-user"></i>
-                    <span>每周新增用户</span>
-                </el-menu-item>
-                <el-menu-item index="4">
-                    <i class="el-icon-user"></i>
-                    <span>每月新增用户</span>
-                </el-menu-item>
-            </el-menu-item-group>
-        </el-submenu>
+                <el-menu-item-group>
+                    <el-menu-item index="4">
+                        <i class="el-icon-user"></i>
+                        <span>每日新增用户</span>
+                    </el-menu-item>
+                    <el-menu-item index="5">
+                        <i class="el-icon-user"></i>
+                        <span>每周新增用户</span>
+                    </el-menu-item>
+                    <el-menu-item index="6">
+                        <i class="el-icon-user"></i>
+                        <span>每月新增用户</span>
+                    </el-menu-item>
+                </el-menu-item-group>
+            </el-submenu>
 
-        <el-menu-item index="5">
-            <i class="el-icon-menu"></i>
-            <span slot="title">基础数据分析</span>
-        </el-menu-item>
-        <el-menu-item index="6"  >
-            <i class="el-icon-document"></i>
-            <span slot="title">连续三天用户活跃数</span>
-        </el-menu-item>
-        <el-menu-item index="7">
-            <i class="el-icon-setting"></i>
-            <span slot="title">用户流失情况</span>
-        </el-menu-item>
-        <el-menu-item index="8">
-            <i class="el-icon-setting"></i>
-            <span slot="title">浏览下单情况</span>
-        </el-menu-item>
-        <el-menu-item index="9">
-            <i class="el-icon-setting"></i>
-            <span slot="title">加购下单情况</span>
-        </el-menu-item>
+            <el-menu-item index="7">
+                <i class="el-icon-menu"></i>
+                <span slot="title">基础数据分析</span>
+            </el-menu-item>
+            <el-menu-item index="8">
+                <i class="el-icon-document"></i>
+                <span slot="title">连续三天用户活跃数</span>
+            </el-menu-item>
+            <el-menu-item index="9">
+                <i class="el-icon-setting"></i>
+                <span slot="title">用户流失情况</span>
+            </el-menu-item>
+            <el-menu-item index="10">
+                <i class="el-icon-setting"></i>
+                <span slot="title">浏览下单情况</span>
+            </el-menu-item>
+            <el-menu-item index="11">
+                <i class="el-icon-setting"></i>
+                <span slot="title">加购下单情况</span>
+            </el-menu-item>
 
-    </el-menu>
-</div>
-<div id="data_tables_holder">
-    <!-- 类 data_table  存放 数据图标的地方 直接将图表显示在其中即可 -->
-    <div class="data_table data_table_selected">1</div>
-    <div class="data_table" id="newusers_daily">2</div>
-    <div class="data_table" id="newusers_wk">3</div>
-    <div class="data_table" id="newusers_month">4</div>
-    <div class="data_table" id="base_data">5</div>
-    <div class="data_table" id="Act_continue_3_day">6</div>
-    <div class="data_table" id="Lost_user_table">7</div>
-    <div class="data_table" id="Funnel_user_etabc">8</div>
-    <div class="data_table" id="Funnel_user_etaba">9</div>
-</div>
+        </el-menu>
+    </div>
+    <div id="data_tables_holder">
+        <!-- 类 data_table  存放 数据图标的地方 直接将图表显示在其中即可 -->
+        <div class="data_table data_table_selected" id="activeusers_daily">1</div>
+        <div class="data_table" id="activeusers_wk">2</div>
+        <div class="data_table" id="activeusers_month">3</div>
+
+        <div class="data_table" id="newusers_daily">4</div>
+        <div class="data_table" id="newusers_wk">5</div>
+        <div class="data_table" id="newusers_month">6</div>
+        <div class="data_table" id="base_data_holder">
+            <el-table
+                    :data="tableData"
+                    style="width: 100%">
+                <el-table-column
+                        prop="shop"
+                        label="总体店铺数"
+                        width="180">
+                </el-table-column>
+                <el-table-column
+                        prop="brand"
+                        label="总体商标数"
+                        width="180">
+                </el-table-column>
+                <el-table-column
+                        prop="volume"
+                        label="总体成交量">
+                </el-table-column>
+            </el-table>
+            <div id="base_data" style="width: 1000px;height: 700px"></div>
+        </div>
+
+
+        <div class="data_table" id="Act_continue_3_day">8</div>
+        <div class="data_table" id="Lost_user_table">9</div>
+        <div class="data_table" id="Funnel_user_etabc">10</div>
+        <div class="data_table" id="Funnel_user_etaba">11</div>
+    </div>
 </body>
+
 </html>
