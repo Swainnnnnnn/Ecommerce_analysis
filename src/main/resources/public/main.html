@@ -39,7 +39,10 @@
     <script src="/js/hit/hitMerchant.js"></script>
     <script src="/js/hit/hitBrand.js"></script>
     <!--基础数据分析-->
-    <script src="/js/base_data.js"></script>
+    <script src="/js/basedata/base_data.js"></script>
+    <!-- 用户购物情况 性别分析 -->
+    <script src="/js/basedata/ugshopping.js"></script>
+    <script src="/js/basedata/ugshopping11.js"></script>
     <!--main.css 导航栏和数据图表的样式文件  如果后续有冲突大家自行更改-->
     <link rel="stylesheet" type="text/css" href="/css/main.css">
 
@@ -91,30 +94,47 @@
                 </el-menu-item-group>
             </el-submenu>
 
+            <el-submenu index="">
+                <template slot="title">
+                    <i class="el-icon-notebook-2"></i>
+                    <span>基础数据分析</span>
+                </template>
+                <el-menu-item-group>
+                    <el-menu-item index="7">
+                        <i class="el-icon-menu"></i>
+                        <span slot="title">基础数据分析</span>
+                    </el-menu-item>
+                    <el-menu-item index="8">
+                        <i class="el-icon-menu"></i>
+                        <span slot="title">双十一购买商品用户情况</span>
+                    </el-menu-item>
+                    <el-menu-item index="9">
+                        <i class="el-icon-menu"></i>
+                        <span slot="title">男女购买商品情况</span>
+                    </el-menu-item>
+                </el-menu-item-group>
+            </el-submenu>
 
-            <el-menu-item index="7">
-                <i class="el-icon-menu"></i>
-                <span slot="title">基础数据分析</span>
-            </el-menu-item>
-            <el-menu-item index="8">
+
+            <el-menu-item index="10">
                 <i class="el-icon-document"></i>
                 <span slot="title">连续三天用户活跃数</span>
             </el-menu-item>
-            <el-menu-item index="9">
+            <el-menu-item index="11">
                 <i class="el-icon-setting"></i>
                 <span slot="title">用户流失情况</span>
             </el-menu-item>
-            <el-menu-item index="10">
-                <i class="el-icon-setting"></i>
+            <el-menu-item index="12">
+                <i class="el-icon-shopping-bag-2"></i>
                 <span slot="title">浏览下单情况</span>
             </el-menu-item>
-            <el-menu-item index="11">
-                <i class="el-icon-setting"></i>
+            <el-menu-item index="13">
+                <i class="el-icon-shopping-cart-full"></i>
                 <span slot="title">加购下单情况</span>
             </el-menu-item>
 
-            <el-menu-item index="12">
-                <i class="el-icon-menu"></i>
+            <el-menu-item index="14">
+                <i class="el-icon-location-outline"></i>
                 <span slot="title">用户留存情况</span>
             </el-menu-item>
             <el-submenu index="">
@@ -123,11 +143,11 @@
                     <span>各省消费能力</span>
                 </template>
                 <el-menu-item-group>
-                    <el-menu-item index="13">
+                    <el-menu-item index="15">
                         <i class="el-icon-user"></i>
                         <span>各个省份的用户数</span>
                     </el-menu-item>
-                    <el-menu-item index="14">
+                    <el-menu-item index="16">
                         <i class="el-icon-user"></i>
                         <span>各个省份购买的商品数</span>
                     </el-menu-item>
@@ -139,15 +159,15 @@
                     <span>销售排行</span>
                 </template>
                 <el-menu-item-group>
-                    <el-menu-item index="15">
+                    <el-menu-item index="17">
                         <i class="el-icon-user"></i>
                         <span>销售top10的商品</span>
                     </el-menu-item>
-                    <el-menu-item index="16">
+                    <el-menu-item index="18">
                         <i class="el-icon-user"></i>
                         <span>销售top10的店铺</span>
                     </el-menu-item>
-                    <el-menu-item index="17">
+                    <el-menu-item index="19">
                         <i class="el-icon-user"></i>
                         <span>销售top10的品牌</span>
                     </el-menu-item>
@@ -165,6 +185,8 @@
         <div class="data_table" id="newusers_daily">4</div>
         <div class="data_table" id="newusers_wk">5</div>
         <div class="data_table" id="newusers_month">6</div>
+
+        <!--  -------------------      基础数据分析-------------------------------------->
         <div class="data_table" id="base_data_holder">
             <el-table :data="tableData" style="width: 100%">
                 <el-table-column prop="shop" label="总体店铺数" width="180">
@@ -176,18 +198,19 @@
             </el-table>
             <div id="base_data" style="width: 1000px;height: 700px"></div>
         </div>
+        <div class="data_table" id="ug_shopping">8</div>
+        <div class="data_table" id="ug_shopping11">9</div>
 
-
-        <div class="data_table" id="Act_continue_3_day">8</div>
-        <div class="data_table" id="Lost_user_table">9</div>
-        <div class="data_table" id="Funnel_user_etabc">10</div>
-        <div class="data_table" id="Funnel_user_etaba">11</div>
-        <div class="data_table" id="stayusers_daily">12</div>
-        <div class="data_table" id="province_user_count">13</div>
-        <div class="data_table" id="province_goods_count">14</div>
-        <div class="data_table" id="hit_goods">15</div>
-        <div class="data_table" id="hit_merchant">16</div>
-        <div class="data_table" id="hit_brand">17</div>
+        <div class="data_table" id="Act_continue_3_day">10</div>
+        <div class="data_table" id="Lost_user_table">11</div>
+        <div class="data_table" id="Funnel_user_etabc">12</div>
+        <div class="data_table" id="Funnel_user_etaba">13</div>
+        <div class="data_table" id="stayusers_daily">14</div>
+        <div class="data_table" id="province_user_count">15</div>
+        <div class="data_table" id="province_goods_count">16</div>
+        <div class="data_table" id="hit_goods">17</div>
+        <div class="data_table" id="hit_merchant">18</div>
+        <div class="data_table" id="hit_brand">19</div>
     </div>
 </body>
 

@@ -30,7 +30,7 @@ public class BaseDataController {
     /***************************1.双十一统计 2.男女购买商品比例统计*******************************************/
     @PostMapping("/GetUserg/shopping11")
     //统计双十一购物总人数
-    public ArrayList<Map<String,Object>> genderShopping(){
+    public ArrayList<Map<String,Object>> userShopping(){
         ArrayList<Map<String,Object>> list = new ArrayList<>();
         //双十一购物总人数 不计性别
         Map<String,Object> obj=(Map<String,Object>)jdbcTemplate.queryForList("select count(*) from ads_ug_count where dt='2020-11-11'").get(0);
