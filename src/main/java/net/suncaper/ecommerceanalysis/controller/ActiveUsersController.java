@@ -13,17 +13,17 @@ public class ActiveUsersController {
     @Autowired
     private JdbcTemplate jdbcTemplate;
     @PostMapping("/GetActiveUsers_Day")
-    public List<Map<String,Object>> DailyNewUsers(){
+    public List<Map<String,Object>> DailyActiveUsers(){
         return jdbcTemplate.queryForList("SELECT count(*),dt FROM dws_uv_detail_day group by dt order by dt;");
     }
 
     @PostMapping("/GetActiveUsers_Wk")
-    public List<Map<String,Object>> WkNewUsers(){
+    public List<Map<String,Object>> WkActiveUsers(){
         return jdbcTemplate.queryForList("SELECT * FROM dws_uv_detail_wk order by wk_num;");
     }
 
     @PostMapping("/GetActiveUsers_Month")
-    public List<Map<String,Object>> MonthNewUsers(){
+    public List<Map<String,Object>> MonthActiveUsers(){
         return jdbcTemplate.queryForList("SELECT * FROM dws_uv_detail_month order by month;");
     }
 }
