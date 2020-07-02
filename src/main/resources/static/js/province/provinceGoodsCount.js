@@ -39,6 +39,7 @@ $(document).ready(function () {
                             z: 10
                         },
                         yAxis: {
+                            min: 'dataMin',
                             name: '购买商品数量',
                             axisLine: {
                                 show: false

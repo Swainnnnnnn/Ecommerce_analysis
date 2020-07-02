@@ -35,6 +35,7 @@ $(document).ready(function () {
                             z: 10
                         },
                         yAxis: {
+                            min: 'dataMin',
                             name: '用户数量',
                             axisLine: {
                                 show: false
