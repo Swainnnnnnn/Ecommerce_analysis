@@ -43,6 +43,8 @@
     <!-- 用户购物情况 性别分析 -->
     <script src="/js/basedata/ugshopping.js"></script>
     <script src="/js/basedata/ugshopping11.js"></script>
+    <!--连续三周活跃用户情况-->
+    <script src="/js/countity_wk.js"></script>
     <!--main.css 导航栏和数据图表的样式文件  如果后续有冲突大家自行更改-->
     <link rel="stylesheet" type="text/css" href="/css/main.css">
 
@@ -52,104 +54,109 @@
 
     <div id="nav">
         <el-menu default-active="1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" @select="handleSelect" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
+
             <el-submenu index="1-1">
-                <template slot="title">
-                <i class="el-icon-postcard"></i>
-                <span>用户活跃情况</span>
-            </template>
-                <el-menu-item-group>
-                    <el-menu-item index="1">
-                        <i class="el-icon-user"></i>
-                        <span>每日活跃用户数</span>
-                    </el-menu-item>
-                    <el-menu-item index="2">
-                        <i class="el-icon-user"></i>
-                        <span>每周活跃用户数</span>
-                    </el-menu-item>
-                    <el-menu-item index="3">
-                        <i class="el-icon-user"></i>
-                        <span>每月活跃用户数</span>
-                    </el-menu-item>
-                </el-menu-item-group>
-            </el-submenu>
-
-            <el-submenu index="1-2">
-                <template slot="title">
-                <i class="el-icon-data-line"></i>
-                <span>新增用户情况</span>
-            </template>
-                <el-menu-item-group>
-                    <el-menu-item index="4">
-                        <i class="el-icon-user"></i>
-                        <span>每日新增用户</span>
-                    </el-menu-item>
-                    <el-menu-item index="5">
-                        <i class="el-icon-user"></i>
-                        <span>每周新增用户</span>
-                    </el-menu-item>
-                    <el-menu-item index="6">
-                        <i class="el-icon-user"></i>
-                        <span>每月新增用户</span>
-                    </el-menu-item>
-                </el-menu-item-group>
-            </el-submenu>
-
-            <el-submenu index="1-3">
                 <template slot="title">
                     <i class="el-icon-notebook-2"></i>
                     <span>基础数据分析</span>
                 </template>
                 <el-menu-item-group>
-                    <el-menu-item index="7">
+                    <el-menu-item index="1">
                         <i class="el-icon-menu"></i>
                         <span slot="title">基础数据分析</span>
                     </el-menu-item>
-                    <el-menu-item index="8">
+                    <el-menu-item index="2">
                         <i class="el-icon-menu"></i>
                         <span slot="title">双十一购买商品用户情况</span>
                     </el-menu-item>
-                    <el-menu-item index="9">
+                    <el-menu-item index="3">
                         <i class="el-icon-menu"></i>
                         <span slot="title">男女购买商品情况</span>
                     </el-menu-item>
                 </el-menu-item-group>
             </el-submenu>
 
+            <el-submenu index="1-2">
+                <template slot="title">
+                <i class="el-icon-postcard"></i>
+                <span>用户活跃情况</span>
+            </template>
+                <el-menu-item-group>
+                    <el-menu-item index="4">
+                        <i class="el-icon-user"></i>
+                        <span>每日活跃用户数</span>
+                    </el-menu-item>
+                    <el-menu-item index="5">
+                        <i class="el-icon-user"></i>
+                        <span>每周活跃用户数</span>
+                    </el-menu-item>
+                    <el-menu-item index="6">
+                        <i class="el-icon-user"></i>
+                        <span>每月活跃用户数</span>
+                    </el-menu-item>
+                    <el-menu-item index="7">
+                        <i class="el-icon-document"></i>
+                        <span slot="title">连续三天用户活跃数</span>
+                    </el-menu-item>
+                    <el-menu-item index="8">
+                        <i class="el-icon-mobile-phone"></i>
+                        <span slot="title">连续三周用户活跃情况</span>
+                    </el-menu-item>
+                </el-menu-item-group>
+            </el-submenu>
 
-            <el-menu-item index="10">
-                <i class="el-icon-document"></i>
-                <span slot="title">连续三天用户活跃数</span>
-            </el-menu-item>
-            <el-menu-item index="11">
-                <i class="el-icon-setting"></i>
-                <span slot="title">用户流失情况</span>
-            </el-menu-item>
+            <el-submenu index="1-3">
+                <template slot="title">
+                <i class="el-icon-data-line"></i>
+                <span>新增用户情况</span>
+            </template>
+                <el-menu-item-group>
+                    <el-menu-item index="9">
+                        <i class="el-icon-user"></i>
+                        <span>每日新增用户</span>
+                    </el-menu-item>
+                    <el-menu-item index="10">
+                        <i class="el-icon-user"></i>
+                        <span>每周新增用户</span>
+                    </el-menu-item>
+                    <el-menu-item index="11">
+                        <i class="el-icon-user"></i>
+                        <span>每月新增用户</span>
+                    </el-menu-item>
+                </el-menu-item-group>
+            </el-submenu>
+
             <el-menu-item index="12">
-                <i class="el-icon-shopping-bag-2"></i>
-                <span slot="title">浏览下单情况</span>
-            </el-menu-item>
-            <el-menu-item index="13">
-                <i class="el-icon-shopping-cart-full"></i>
-                <span slot="title">加购下单情况</span>
-            </el-menu-item>
-
-            <el-menu-item index="14">
                 <i class="el-icon-location-outline"></i>
                 <span slot="title">用户留存情况</span>
             </el-menu-item>
 
+            <el-menu-item index="13">
+                <i class="el-icon-setting"></i>
+                <span slot="title">用户流失情况</span>
+            </el-menu-item>
+            <el-menu-item index="14">
+                <i class="el-icon-shopping-bag-2"></i>
+                <span slot="title">浏览下单情况</span>
+            </el-menu-item>
+            <el-menu-item index="15">
+                <i class="el-icon-shopping-cart-full"></i>
+                <span slot="title">加购下单情况</span>
+            </el-menu-item>
+
+
             <el-submenu index="1-4">
                 <template slot="title">
-                    <i class="el-icon-postcard"></i>
+                    <i class="el-icon-cloudy"></i>
                     <span>各省消费能力</span>
                 </template>
                 <el-menu-item-group>
-                    <el-menu-item index="15">
+                    <el-menu-item index="16">
                         <i class="el-icon-user"></i>
                         <span>各个省份的用户数</span>
                     </el-menu-item>
-                    <el-menu-item index="16">
-                        <i class="el-icon-user"></i>
+                    <el-menu-item index="17">
+                        <i class="el-icon-present"></i>
                         <span>各个省份购买的商品数</span>
                     </el-menu-item>
                 </el-menu-item-group>
@@ -157,39 +164,32 @@
 
             <el-submenu index="1-5">
                 <template slot="title">
-                    <i class="el-icon-postcard"></i>
+                    <i class="el-icon-finished"></i>
                     <span>销售排行</span>
                 </template>
                 <el-menu-item-group>
-                    <el-menu-item index="17">
-                        <i class="el-icon-user"></i>
+                    <el-menu-item index="18">
+                        <i class="el-icon-trophy"></i>
                         <span>销售top10的商品</span>
                     </el-menu-item>
-                    <el-menu-item index="18">
-                        <i class="el-icon-user"></i>
+                    <el-menu-item index="19">
+                        <i class="el-icon-trophy"></i>
                         <span>销售top10的店铺</span>
                     </el-menu-item>
-                    <el-menu-item index="19">
-                        <i class="el-icon-user"></i>
+                    <el-menu-item index="20">
+                        <i class="el-icon-trophy"></i>
                         <span>销售top10的品牌</span>
                     </el-menu-item>
                 </el-menu-item-group>
             </el-submenu>
 
+
         </el-menu>
     </div>
     <div id="data_tables_holder">
         <!-- 类 data_table  存放 数据图标的地方 直接将图表显示在其中即可 -->
-        <div class="data_table data_table_selected" id="activeusers_daily">1</div>
-        <div class="data_table" id="activeusers_wk">2</div>
-        <div class="data_table" id="activeusers_month">3</div>
-
-        <div class="data_table" id="newusers_daily">4</div>
-        <div class="data_table" id="newusers_wk">5</div>
-        <div class="data_table" id="newusers_month">6</div>
-
         <!--  -------------------      基础数据分析-------------------------------------->
-        <div class="data_table" id="base_data_holder">
+        <div class="data_table data_table_selected" id="base_data_holder">
             <el-table :data="tableData" style="width: 100%">
                 <el-table-column prop="shop" label="总体店铺数" width="180">
                 </el-table-column>
@@ -200,19 +200,38 @@
             </el-table>
             <div id="base_data" style="width: 1000px;height: 700px"></div>
         </div>
-        <div class="data_table" id="ug_shopping">8</div>
-        <div class="data_table" id="ug_shopping11">9</div>
+        <div class="data_table" id="ug_shopping">2</div>
+        <div class="data_table" id="ug_shopping11">3</div>
 
-        <div class="data_table" id="Act_continue_3_day">10</div>
-        <div class="data_table" id="Lost_user_table">11</div>
-        <div class="data_table" id="Funnel_user_etabc">12</div>
-        <div class="data_table" id="Funnel_user_etaba">13</div>
-        <div class="data_table" id="stayusers_daily">14</div>
-        <div class="data_table" id="province_user_count">15</div>
-        <div class="data_table" id="province_goods_count">16</div>
-        <div class="data_table" id="hit_goods">17</div>
-        <div class="data_table" id="hit_merchant">18</div>
-        <div class="data_table" id="hit_brand">19</div>
+        <!--  -------------------      活跃用户分析-------------------------------------->
+        <div class="data_table" id="activeusers_daily">4</div>
+        <div class="data_table" id="activeusers_wk">5</div>
+        <div class="data_table" id="activeusers_month">6</div>
+        <div class="data_table" id="Act_continue_3_day">7</div>
+        <div class="data_table" id="countity_wk">8</div>
+
+        <!--  -------------------      新增用户分析-------------------------------------->
+        <div class="data_table" id="newusers_daily">9</div>
+        <div class="data_table" id="newusers_wk">10</div>
+        <div class="data_table" id="newusers_month">11</div>
+
+        <!--  -------------------   用户留存分析-------------------------------------->
+        <div class="data_table" id="stayusers_daily">12</div>
+
+        <!--  -------------------   用户流失分析-------------------------------------->
+        <div class="data_table" id="Lost_user_table">13</div>
+
+        <!--  -------------------   浏览、加入购物车、成单的比率分析-------------------------------------->
+        <div class="data_table" id="Funnel_user_etabc">14</div>
+        <div class="data_table" id="Funnel_user_etaba">15</div>
+
+        <!--  ------------------- top 10 （分析销量top 10的商品/店铺/品牌）---------------->
+        <!--  -------------分析各个省份的消费能力（用户数/购买商品数）-------------------------------------->
+        <div class="data_table" id="province_user_count">16</div>
+        <div class="data_table" id="province_goods_count">17</div>
+        <div class="data_table" id="hit_goods">18</div>
+        <div class="data_table" id="hit_merchant">19</div>
+        <div class="data_table" id="hit_brand">20</div>
     </div>
 </body>
 
